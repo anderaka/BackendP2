@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div>
+        <h1 class="logo">
+            <a href="/"><%= title %></a>
+        </h1>
+    </div>
+
+    <div class>
+    <% ad.forEach(item => { %>
+      <div class="card" style="width: 18rem;">
+        <h5 class="card-title"><%= item.name %></h5>
+        <div class="card-body">
+            <% if (item.sell === true) { %>
+                <p class="card-text">Vender</p>
+            <% } else{ %>  
+                <p class="card-text">Comprar</p>
+            <% } %>          
+          <p class="card-price">Precio: <%= item.price %> €</p>
+          <p class="card-text">Tags: <%= item.tags %></p>
+          <img src="./public/images/ads/<%= item.photo %>" class="card-img-top" alt="<%= item.name %>">
+        </div>
+      </div>
+      <% }) %>
+    </div>
+
+  </body>
+</html>
